@@ -27,7 +27,6 @@ class Hangman:
     Sets up a game of hangman
     '''
     def setupHangman(self):
-        print("SET UP HANGMAN")
         self.wordLetters = set()    # Set of letters in the word
         self.usedLetters = set()    # Set of letters already used
         self.getRandomWord()        # Secret word in the hangman game

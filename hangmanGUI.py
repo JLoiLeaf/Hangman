@@ -25,7 +25,6 @@ class HangmanGUI:
         self.letterBank = []
         self.guessesLeft = 6
         self.setupGame()
-
         
     '''
     Sets up a new Hangman Game
