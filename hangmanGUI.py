@@ -180,17 +180,16 @@ class HangmanGUI:
 
         # Values
         wordLength = len(self.hangman.word)
-        distance = 10; lengthX = 30; lengthY = 5
-        x0 = 10; y0 = 50; x1 = x0 + lengthX; y1 = y0 - lengthY
+        x0 = 10; y0 = 50; x1 = x0 + blankXLength; y1 = y0 - blankYLength
         
         # Draw Blank Spaces
         while wordLength>0:
             # Draw Border
-            canvas.create_rectangle(x0, y0, x1, y1, fill="black")
+            canvas.create_rectangle(x0, y0, x1, y1, fill="brown")
 
             # Update Values
             wordLength = wordLength - 1
-            x0 = x1 + distance; x1 = x0 + lengthX
+            x0 = x1 + blankDistance; x1 = x0 + blankXLength
 
         canvas.pack(side=TOP)
 
@@ -222,7 +221,7 @@ class HangmanGUI:
         # Draw Border and Letters
         while wordLength>0:
             # Draw Border
-            canvas.create_rectangle(x0, y0, x1, y1, fill="black")
+            canvas.create_rectangle(x0, y0, x1, y1, fill="brown")
 
             # Draw the Letter
             letter = wordList[count]
