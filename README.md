@@ -23,3 +23,15 @@ The number of guesses left is depicted in the top right along with the hangman t
 
 
 ![basic game](https://user-images.githubusercontent.com/36089473/124056151-0d0d3780-d9da-11eb-9bbb-260e9297d96b.PNG)
+
+### Guessing Letters
+To play the game, you enter a letter in the entry widget. To guess the letter you can press 'Enter' in the entry widget or press the 'Submit button'.
+
+If the input is valid (a letter), the letter is added to the letter bank of letter(s) already used by the player if it has not been used before. If the letter is already in the letter bank, a message box will appear, reminding the player that the letter just guessed has already been guessed in the current game.
+
+For a new guessed letter, if it exists in the secret word, the letter will appear in the given position(s) in the secret word blanks. If not, more of the hangman is draw.
+
+Invalid Input | Valid Input (Incorrect) | Valid Input (Correct)
+| :---: | :---: | :---:
+| ![invalidInput](https://user-images.githubusercontent.com/36089473/124369219-38806400-dc1e-11eb-9b17-97a41a5fd624.png) | ![validIncorrectInput](https://user-images.githubusercontent.com/36089473/124369233-754c5b00-dc1e-11eb-8157-386d93095804.png) | ![validCorrectInput](https://user-images.githubusercontent.com/36089473/124369225-58b02300-dc1e-11eb-8ad4-fa505c28b890.png)
+
