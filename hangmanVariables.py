@@ -16,6 +16,7 @@ txtColor = 'black'
 titleFontStyle = ("Times New Roman", 25, "bold", "normal", "underline")
 hangmanFontStyle = ("Times New Roman", 25, "bold")
 basicFontStyle = ("Times New Roman", 25)
+buttonFontStyle = ("Times New Roman", 12, "bold")
 
 # Hangman Location
 hangmanDistance = cvWidth/1.6   # X value of the hangman's location

@@ -12,6 +12,7 @@ from tkinter import messagebox
 from playsound import playsound
 from hangmanGame import *
 from hangmanVariables import *
+
 class HangmanGUI:
     '''
     Initialization Function
@@ -195,8 +196,9 @@ class HangmanGUI:
 
         # Bottom Frame Widget(s)
         self.entry = Entry(bottomFrame, textvariable=input , font=basicFontStyle)
-        submit = Button(bottomFrame, text="Submit", command=self.submitInput)
-        reset = Button(bottomFrame, text="New Game", command=self.newGame)
+        submit = Button(bottomFrame, text="Submit", command=self.submitInput, font=buttonFontStyle)
+        self.entry.bind('<Return>', self.submitEnter)
+        reset = Button(bottomFrame, text="New Game", command=self.newGame, font=buttonFontStyle)
 
         # Pack Widgets
         self.entry.pack(side=LEFT); submit.pack(side=LEFT); reset.pack(side=LEFT)
@@ -282,6 +284,13 @@ class HangmanGUI:
 
         # Clear Entry
         self.entry.delete(0, END)
+
+    '''
+    Entry Widget Enter Key
+    Calls the submitInput function when you press 'Enter' in the entry
+    '''
+    def submitEnter(self, random):
+        self.submitInput()
 
     '''
     New Game Button
