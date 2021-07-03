@@ -35,3 +35,19 @@ Invalid Input | Valid Input (Incorrect) | Valid Input (Correct)
 | :---: | :---: | :---:
 | ![invalidInput](https://user-images.githubusercontent.com/36089473/124369219-38806400-dc1e-11eb-9b17-97a41a5fd624.png) | ![validIncorrectInput](https://user-images.githubusercontent.com/36089473/124369233-754c5b00-dc1e-11eb-8157-386d93095804.png) | ![validCorrectInput](https://user-images.githubusercontent.com/36089473/124369225-58b02300-dc1e-11eb-8ad4-fa505c28b890.png)
 
+### Finishing the Game
+When playing the game, there are two outcomes for the player: the secret word is guessed before all chances are used or it was not guessed and all chances have been used.
+
+Guessing the Secret Word | Running out of Chances
+| :---: | :---: 
+| ![image](https://user-images.githubusercontent.com/36089473/124369296-24893200-dc1f-11eb-9940-5ef33f3e3bdc.png) | ![image](https://user-images.githubusercontent.com/36089473/124369254-a6c52680-dc1e-11eb-8d26-25b1c7d137c3.png)
+
+
+### New Game
+The player can begin a new game of hangman at any time by pressing the 'New Game' button.
+
+A message box will appear to ask the player if they would like to play a new game.
+
+![image](https://user-images.githubusercontent.com/36089473/124369325-83e74200-dc1f-11eb-8ef2-7fa490b9ee95.png)
+
+
