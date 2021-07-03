@@ -9,9 +9,9 @@
 # Module(s)
 from tkinter import *
 from tkinter import messagebox
+from playsound import playsound
 from hangmanGame import *
 from hangmanVariables import *
-
 class HangmanGUI:
     '''
     Initialization Function
@@ -24,7 +24,7 @@ class HangmanGUI:
         # Initial Values
         self.letterBank = []
         self.guessesLeft = 6
-        self.setupGame()
+        self.setupGame()        
         
     '''
     Sets up a new Hangman Game
@@ -257,6 +257,7 @@ class HangmanGUI:
             # The secret word has been guessed
             elif value == 1: 
                 self.drawWord()
+                playsound('success_sfx.mp3', block=0)
                 messagebox.showinfo("Congratulations!", "You have guessed the secret word, " + self.hangman.word + "!")
 
             # The letter is not in the secret word
@@ -265,15 +266,16 @@ class HangmanGUI:
                 self.lettersUsed(letter.capitalize())
                 self.drawHangman()
                 if (self.guessesLeft != 0):
-                    messagebox.showinfo("Try Again!", "This letter is not in the secret word.")
+                    playsound('incorrect_sfx.wav', block=0)
                 else:
+                    playsound('fail_sfx.mp3', block=0)
                     messagebox.showwarning("No Guesses Left!", "The secret word was " + self.hangman.word + "!")
 
             # The letter is in the secret word
             elif value == 3: 
                 self.lettersUsed(letter.capitalize())
                 self.drawWord()
-                messagebox.showinfo("Good Job!", "This letter is in the secret word.")
+                playsound('correct_sfx.mp3', block=0)
 
         # Bad Input (Not a Letter)
         else: messagebox.showerror("Error", "The given input is not a letter.")
