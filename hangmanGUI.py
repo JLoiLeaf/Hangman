@@ -102,10 +102,10 @@ class HangmanGUI:
         midRightFrame = Frame(self.root, bg=bgColor)
         midRightFrame.pack(side=LEFT, anchor=N, expand=True, fill=None)
 
-        # Guesses Label
-        self.guessesLabel = Label(midRightFrame, text="Guesses Left: " + str(self.guessesLeft), 
+        # Chances Label
+        self.chancesLabel = Label(midRightFrame, text="Chances Left: " + str(self.guessesLeft), 
             foreground=txtColor, background=bgColor, font=titleFontStyle)
-        self.guessesLabel.pack()
+        self.chancesLabel.pack()
 
         # Canvas
         self.canvasHM = Canvas(midRightFrame, width=(windowWidth/2), height=(windowHeight/1.5), 
@@ -121,8 +121,8 @@ class HangmanGUI:
     '''
     def drawHangman(self):
         # Guesses Label
-        self.guessesLabel.config(text="Guesses Left: " + str(self.guessesLeft))
-        self.guessesLabel.pack()
+        self.chancesLabel.config(text="Chances Left: " + str(self.guessesLeft))
+        self.chancesLabel.pack()
 
         # Canvas
         canvas = self.canvasHM
