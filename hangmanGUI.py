@@ -45,9 +45,9 @@ class HangmanGUI:
         # Configure GUI
         self.root = Tk()
         self.root.title("Hangman Game")
-        self.root.configure(background=bgColor)
-        self.root.geometry(str(windowWidth) + "x" + str(windowHeight)) 
-        Label(self.root, text ="Hangman", foreground=txtColor, background=bgColor, font=titleFontStyle).pack(); 
+        self.root.configure(background=background_color)
+        self.root.geometry(str(window_width) + "x" + str(window_height)) 
+        Label(self.root, text ="Hangman", foreground=text_color, background=background_color, font=title_font_style).pack(); 
 
         # Frames
         self.wordFrame()
@@ -62,17 +62,17 @@ class HangmanGUI:
     This is the frame where the used letters will be written
     '''
     def lettersUsedFrame(self):
-        midLeftFrame = Frame(self.root, bg=bgColor)   
+        midLeftFrame = Frame(self.root, bg=background_color)   
         midLeftFrame.pack(side=LEFT, anchor=N, expand=True, fill=None)
 
         # Title Label
-        letterBankLabel = Label(midLeftFrame, text="Letter(s) Used", fg=txtColor, bg=bgColor, font=titleFontStyle)
+        letterBankLabel = Label(midLeftFrame, text="Letter(s) Used", fg=text_color, bg=background_color, font=title_font_style)
         letterBankLabel.pack()
 
         # Letters Used Lables
-        self.lettersUsedLabel1 = Label(midLeftFrame, text="", foreground=txtColor, background=bgColor, font=basicFontStyle)
-        self.lettersUsedLabel2 = Label(midLeftFrame, text="", foreground=txtColor, background=bgColor, font=basicFontStyle)
-        self.lettersUsedLabel3 = Label(midLeftFrame, text="", foreground=txtColor, background=bgColor, font=basicFontStyle)
+        self.lettersUsedLabel1 = Label(midLeftFrame, text="", foreground=text_color, background=background_color, font=basic_font_style)
+        self.lettersUsedLabel2 = Label(midLeftFrame, text="", foreground=text_color, background=background_color, font=basic_font_style)
+        self.lettersUsedLabel3 = Label(midLeftFrame, text="", foreground=text_color, background=background_color, font=basic_font_style)
         self.lettersUsedLabel1.pack(side=TOP); self.lettersUsedLabel2.pack(side=TOP); self.lettersUsedLabel3.pack(side=TOP)
 
     '''
@@ -99,17 +99,17 @@ class HangmanGUI:
     '''
     def hangmanFrame(self):
         # Hangmane Frame
-        midRightFrame = Frame(self.root, bg=bgColor)
+        midRightFrame = Frame(self.root, bg=background_color)
         midRightFrame.pack(side=LEFT, anchor=N, expand=True, fill=None)
 
         # Chances Label
         self.chancesLabel = Label(midRightFrame, text="Chances Left: " + str(self.guessesLeft), 
-            foreground=txtColor, background=bgColor, font=titleFontStyle)
+            foreground=text_color, background=background_color, font=title_font_style)
         self.chancesLabel.pack()
 
         # Canvas
-        self.canvasHM = Canvas(midRightFrame, width=(windowWidth/2), height=(windowHeight/1.5), 
-            bg=bgColor, highlightbackground=bgColor)
+        self.canvasHM = Canvas(midRightFrame, width=(window_width/2), height=(window_height/1.5), 
+            bg=background_color, highlightbackground=background_color)
 
         # Draw Stand
         self.drawStand()
@@ -132,38 +132,38 @@ class HangmanGUI:
         self.drawStand()
 
         # Head
-        if self.guessesLeft <= 5: canvas.create_oval(hangmanDistance - headWidth, distanceFromTop, 
-            hangmanDistance + headWidth, hangmanFromTop + distanceFromTop, fill="white", width=2)
+        if self.guessesLeft <= 5: canvas.create_oval(hangman_x - hangmane_figure_head_width, hangman_figure_y0, 
+            hangman_x + hangmane_figure_head_width, hangman_y + hangman_figure_y0, fill="white", width=2)
 
         # Body
-        if self.guessesLeft <= 4: canvas.create_line(hangmanDistance, bodyTop, 
-            hangmanDistance, bodyBottom, width=2)
+        if self.guessesLeft <= 4: canvas.create_line(hangman_x, hangman_body_x0, 
+            hangman_x, hangman_body_x1, width=2)
         
         # Right Arm
-        if self.guessesLeft <= 3: canvas.create_line(hangmanDistance, bodyTop + limbFromTop, 
-            hangmanDistance + limbWidth, bodyTop + limbLength, width=2)
+        if self.guessesLeft <= 3: canvas.create_line(hangman_x, hangman_body_x0 + hangman_limb_x, 
+            hangman_x + hangman_limb_width, hangman_body_x0 + hangman_limb_y, width=2)
             
         # Left Arm
-        if self.guessesLeft <= 2: canvas.create_line(hangmanDistance, bodyTop + limbFromTop, 
-            hangmanDistance - limbWidth, bodyTop + limbLength, width=2) 
+        if self.guessesLeft <= 2: canvas.create_line(hangman_x, hangman_body_x0 + hangman_limb_x, 
+            hangman_x - hangman_limb_width, hangman_body_x0 + hangman_limb_y, width=2) 
         
         # Right Leg
-        if self.guessesLeft <= 1: canvas.create_line(hangmanDistance, bodyBottom, 
-            hangmanDistance + limbWidth/1.5, bodyBottom + headWidth, width=2) 
+        if self.guessesLeft <= 1: canvas.create_line(hangman_x, hangman_body_x1, 
+            hangman_x + hangman_limb_width/1.5, hangman_body_x1 + hangmane_figure_head_width, width=2) 
 
         # Left Leg
-        if self.guessesLeft == 0: canvas.create_line(hangmanDistance, bodyBottom, 
-            hangmanDistance - limbWidth/1.5, bodyBottom + headWidth, width=2) 
+        if self.guessesLeft == 0: canvas.create_line(hangman_x, hangman_body_x1, 
+            hangman_x - hangman_limb_width/1.5, hangman_body_x1 + hangmane_figure_head_width, width=2) 
 
     '''
     Draw the Hangman's stand
     '''
     def drawStand(self):
         canvas = self.canvasHM
-        canvas.create_rectangle(standLocation, standBottom, standLocation*2, standBottom - standHeight, fill="brown", outline="brown")
-        canvas.create_rectangle(poleLocation - poleWidth, poleBottom, poleLocation + poleWidth, poleTop, fill="brown", outline="brown")
-        canvas.create_rectangle(poleLocation - poleWidth, poleTop, hangmanDistance, poleTop - poleWidth*2, fill="brown", outline="brown")
-        canvas.create_rectangle(hangmanDistance, poleTop - 10, hangmanDistance, poleTop + hangmanFromTop*2)
+        canvas.create_rectangle(base_x0, base_y0, base_x0*2, base_y0 - base_y1, fill="brown", outline="brown")
+        canvas.create_rectangle(pole_x - pole_width, pole_y0, pole_x + pole_width, pole_y1, fill="brown", outline="brown")
+        canvas.create_rectangle(pole_x - pole_width, pole_y1, hangman_x, pole_y1 - pole_width*2, fill="brown", outline="brown")
+        canvas.create_rectangle(hangman_x, pole_y1 - 10, hangman_x, pole_y1 + hangman_y*2)
 
     '''
     The Word Frame (Bottom)
@@ -172,16 +172,16 @@ class HangmanGUI:
     '''
     def wordFrame(self):
         # Secret Word Guess, Entry, Submit Button, New Game Buttoon
-        bottomFrame = Frame(self.root, bg=bgColor, pady=10)
+        bottomFrame = Frame(self.root, bg=background_color, pady=10)
         bottomFrame.pack(side=BOTTOM)        
 
         # Canvas
-        self.canvasW = Canvas(bottomFrame, width=windowWidth, height=50, bg=bgColor, highlightbackground=bgColor)
+        self.canvasW = Canvas(bottomFrame, width=window_width, height=50, bg=background_color, highlightbackground=background_color)
         canvas = self.canvasW
 
         # Values
         wordLength = len(self.hangman.word)
-        x0 = 10; y0 = 50; x1 = x0 + blankXLength; y1 = y0 - blankYLength
+        x0 = 10; y0 = 50; x1 = x0 + blank_width_length; y1 = y0 - blank_height_length
         
         # Draw Blank Spaces
         while wordLength>0:
@@ -190,15 +190,15 @@ class HangmanGUI:
 
             # Update Values
             wordLength = wordLength - 1
-            x0 = x1 + blankDistance; x1 = x0 + blankXLength
+            x0 = x1 + blank_space_distance; x1 = x0 + blank_width_length
 
         canvas.pack(side=TOP)
 
         # Bottom Frame Widget(s)
-        self.entry = Entry(bottomFrame, textvariable=input , font=basicFontStyle)
-        submit = Button(bottomFrame, text="Submit", command=self.submitInput, font=buttonFontStyle)
+        self.entry = Entry(bottomFrame, textvariable=input , font=basic_font_style)
+        submit = Button(bottomFrame, text="Submit", command=self.submitInput, font=button_font_style)
         self.entry.bind('<Return>', self.submitEnter)
-        reset = Button(bottomFrame, text="New Game", command=self.newGame, font=buttonFontStyle)
+        reset = Button(bottomFrame, text="New Game", command=self.newGame, font=button_font_style)
 
         # Pack Widgets
         self.entry.pack(side=LEFT); submit.pack(side=LEFT); reset.pack(side=LEFT)
@@ -218,7 +218,7 @@ class HangmanGUI:
         # Canvas Values
         count = 0
         x0 = 10; y0 = 50; 
-        x1 = x0 + blankXLength; y1 = y0 - blankYLength
+        x1 = x0 + blank_width_length; y1 = y0 - blank_height_length
         
         # Draw Border and Letters
         while wordLength>0:
@@ -227,12 +227,12 @@ class HangmanGUI:
 
             # Draw the Letter
             letter = wordList[count]
-            if (letter in self.hangman.usedLetters): canvas.create_text(x0+blankDistance/2, y1 - blankLetterDistance, anchor=W, font=hangmanFontStyle, text=letter)
-            else: canvas.create_text(x0+blankDistance/2, y1 - blankLetterDistance, anchor=W, font=hangmanFontStyle, text="")
+            if (letter in self.hangman.usedLetters): canvas.create_text(x0+blank_space_distance/2, y1 - blank_letter_distance, anchor=W, font=hangman_font_style, text=letter)
+            else: canvas.create_text(x0+blank_space_distance/2, y1 - blank_letter_distance, anchor=W, font=hangman_font_style, text="")
 
             # Update Values
             wordLength = wordLength - 1; count = count + 1
-            x0 = x1 + blankDistance; x1 = x0 + blankXLength
+            x0 = x1 + blank_space_distance; x1 = x0 + blank_width_length
 
         # Redraw Canvas
         canvas.pack(side=TOP)
