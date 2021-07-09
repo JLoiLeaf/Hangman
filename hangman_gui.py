@@ -13,7 +13,7 @@ from playsound import playsound
 from hangman_game import *
 from hangman_variables import *
 
-class HangmanGUI:
+class Hangman_GUI:
     '''
     Initialization Function
     Sets up the Hangman GUI and the Hangman game
