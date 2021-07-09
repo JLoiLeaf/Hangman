@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# Name:     hangmanVariables
+# Name:     hangman_variables
 # Purpose:  Contains all of the scalable variables used in hangmanGUI
 #
 # Author:   Julie Loi

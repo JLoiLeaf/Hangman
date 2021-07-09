@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# Name:     hangmanGUI
+# Name:     hangman_gui
 # Purpose:  Creates the GUI of the hangman game and implements the 
 #           Hangman game login
 #
@@ -10,8 +10,8 @@
 from tkinter import *
 from tkinter import messagebox
 from playsound import playsound
-from hangmanGame import *
-from hangmanVariables import *
+from hangman_game import *
+from hangman_variables import *
 
 class HangmanGUI:
     '''

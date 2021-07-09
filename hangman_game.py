@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# Name:     hangmanGame
+# Name:     hangman_game
 # Purpose:  The main code of the hangman game
 #           It consists of the logic of the hangman game
 #

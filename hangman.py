@@ -6,6 +6,6 @@
 # Author:   Julie Loi
 # ----------------------------------------------------------------------
 
-from hangmanGUI import *
+from hangman_gui import *
 
-game = HangmanGUI()
+game = Hangman_GUI()
